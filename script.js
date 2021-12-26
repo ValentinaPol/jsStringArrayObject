@@ -19,9 +19,9 @@ function clearVowels(str) {
     return strResult;
 }
 
-//console.log(clearVowels("I have never seen a thin person drinking Diet Coke."));
-//console.log(clearVowels("We're gonna build a wall!"));
-//console.log(clearVowels("Happy Thanksgiving to all--even the haters and losers!"));
+console.log(clearVowels("I have never seen a thin person drinking Diet Coke."));
+console.log(clearVowels("We're gonna build a wall!"));
+console.log(clearVowels("Happy Thanksgiving to all--even the haters and losers!"));
 
 
 
@@ -65,10 +65,10 @@ function splitArr(arr1, arr2) {
          
 }
 
-//console.log(splitArr([1, 2, 3, 4], [0, 6]));
-//console.log(splitArr([3, 1], [4, 0]));
-//console.log(splitArr([9, 9, 8], [8, 9]));
-//console.log(splitArr([1, 2, 3, 4], [2, 3]));
+console.log(splitArr([1, 2, 3, 4], [0, 6]));
+console.log(splitArr([3, 1], [4, 0]));
+console.log(splitArr([9, 9, 8], [8, 9]));
+console.log(splitArr([1, 2, 3, 4], [2, 3]));
 
 
 //3. Для объекта людей и их возраста верните, сколько лет будет людям по прошествии n лет. n - определяется вторым параметром.
@@ -118,7 +118,7 @@ function afterYears(obj, n) {
     return resultObj; 
 }
 
-/*console.log(afterYears({
+console.log(afterYears({
         "Joel" : 32,
          "Fred" : 44,
          "Reginald" : 65,
@@ -137,7 +137,7 @@ console.log(afterYears({
 console.log(afterYears({
          "Genie" : 1000,
          "Joe" : 40
-       }, 5));*/
+       }, 5));
 
 
 //4.  Создайте  функцию, которая получает массив и удаляет все false значения.
@@ -159,7 +159,7 @@ function clearFalses(arr) {
 
 }
 
-//console.log(clearFalses([0, 1, false, 2, "", 3]));
+console.log(clearFalses([0, 1, false, 2, "", 3]));
 
 
 
@@ -181,9 +181,9 @@ function reverseAndValue(num) {
     return +(strResult+str);
 }
 
-//console.log(reverseAndValue(123));
-//console.log(reverseAndValue(152));
-//console.log(reverseAndValue(123456789));
+console.log(reverseAndValue(123));
+console.log(reverseAndValue(152));
+console.log(reverseAndValue(123456789));
 
 
 
@@ -199,7 +199,19 @@ multiplyNumbers("54, 75, 453, 0") ➞ 0
 
 multiplyNumbers("10, -2") ➞ -20 */
 
+function multiplyNumbers(str){
+    var arrStr = str.split(' ');
+    var multiNumbers = 1;
+    for (var i = 0; i < arrStr.length; i++){
+        multiNumbers *= parseFloat(arrStr[i]);
+    }
+    return multiNumbers;
+}
 
+console.log(multiplyNumbers("2, 3"));
+console.log(multiplyNumbers("1, 2, 3, 4"));
+console.log(multiplyNumbers("54, 75, 453, 0"));
+console.log(multiplyNumbers("10, -2"));
 
 
 
@@ -236,10 +248,10 @@ function missingNumber(arr) {
     }
 }
 
-//console.log(missingNumber([1, 2, 3, 4, 6, 7, 8, 9, 10]));
-//console.log(missingNumber([7, 2, 3, 6, 5, 9, 1, 4, 8]));
-//console.log(missingNumber([10, 5, 1, 2, 4, 6, 8, 3, 9]));
-//console.log(missingNumber([5, 2, 3, 4, 6, 7, 8, 9, 10]));
+console.log(missingNumber([1, 2, 3, 4, 6, 7, 8, 9, 10]));
+console.log(missingNumber([7, 2, 3, 6, 5, 9, 1, 4, 8]));
+console.log(missingNumber([10, 5, 1, 2, 4, 6, 8, 3, 9]));
+console.log(missingNumber([5, 2, 3, 4, 6, 7, 8, 9, 10]));
 
 
 
@@ -269,9 +281,9 @@ function revWords(str){
     return strResult;
 }
 
-//console.log(revWords(" the sky is blue"));
-//console.log(revWords("hello   world!  "));
-//console.log(revWords("a good example"));
+console.log(revWords(" the sky is blue"));
+console.log(revWords("hello   world!  "));
+console.log(revWords("a good example"));
 
 
 
@@ -293,9 +305,9 @@ function sevenFind(arr) {
     arr.join('').indexOf(7) != -1 ? console.log('7 - найдено!') : console.log('в массиве нет 7');
 }
 
-//sevenFind([1, 2, 3, 4, 5, 6, 7]);
-//sevenFind([8, 6, 33, 100]);
-//sevenFind([2, 55, 60, 97, 86]);
+sevenFind([1, 2, 3, 4, 5, 6, 7]);
+sevenFind([8, 6, 33, 100]);
+sevenFind([2, 55, 60, 97, 86]);
 
 
 
@@ -319,18 +331,21 @@ chunksArr([2, 3, 4, 5, 6, 7], 7) ➞ [[2, 3, 4, 5, 6, 7]]
 
 function chunksArr(arr, n) {
     var arrResult = [];
-    
-
+    for (var i = 0; i < arr.length; i++){
+        if (i%n === 0 || i === 0) {
+            var arrSub = [];
+            arrResult.push(arrSub);
+        }
+        arrSub.push(arr[i]);
+    }
+    return arrResult;
 }
 
-
-
-
-
-
-
-
-
+console.log(chunksArr([2, 3, 4, 5], 2));
+console.log(chunksArr([2, 3, 4, 5, 6], 2));
+console.log(chunksArr([2, 3, 4, 5, 6, 7], 3));
+console.log(chunksArr([2, 3, 4, 5, 6, 7], 1));
+console.log(chunksArr([2, 3, 4, 5, 6, 7], 7));
 
 
 
@@ -350,14 +365,22 @@ function chunksArr(arr, n) {
 // Объект должен быть в том же порядке, что и во входном массиве.
 
 
+function getFreq(arr) {
+    var objResult = {};
+    for (var i = 0; i < arr.length; i++){
+        if (arr[i] in objResult){
+            ++objResult[arr[i]];
+        } else {
+            objResult[arr[i]] = 1; 
+        }
+    }
+    return objResult;
+}
 
-
-
-
-
-
-
-
+console.log(getFreq(["A", "B", "A", "A", "A"]));
+console.log(getFreq([1, 2, 3, 3, 2]));
+console.log(getFreq([true, false, true, false, false]));
+console.log(getFreq([]));
 
 
 
